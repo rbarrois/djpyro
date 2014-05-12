@@ -23,9 +23,9 @@ Simply do:
     django-admin.py runpyro 1001 --with-http=8001 &
 
     python
-    >>> import djpyro
-    >>> s1 = djpyro.Client('localhost:1000')
-    >>> s2 = djpyro.Client('localhost:1001')
+    >>> import djfire
+    >>> s1 = djfire.Client('localhost:1000')
+    >>> s2 = djfire.Client('localhost:1001')
     >>> run_tests()
     >>> s1.kill()
     >>> s2.kill()

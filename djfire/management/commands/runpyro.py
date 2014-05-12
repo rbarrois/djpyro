@@ -8,8 +8,8 @@ import os
 from django.core.management.base import BaseCommand
 from django.utils import importlib
 
-from ... import server as djpyro_server
-from ... import plugins as djpyro_plugins
+from ... import server as djfire_server
+from ... import plugins as djfire_plugins
 
 class Command(BaseCommand):
     option_list = BaseCommand.option_list + (
@@ -35,10 +35,10 @@ class Command(BaseCommand):
 
         stack = []
         if test_db:
-            stack.append(djpyro_plugins.TestEnvironment())
+            stack.append(djfire_plugins.TestEnvironment())
 
         if http_server:
-            stack.append(djpyro_plugins.ServerLauncer(http_server))
+            stack.append(djfire_plugins.ServerLauncer(http_server))
 
         self.launch(listen, stack=stack, plugins=plugins)
 
@@ -50,7 +50,7 @@ class Command(BaseCommand):
             host, port = listen.rsplit(':', 1)
             server_kwargs = {'host': host, 'port': int(port)}
 
-        server = djpyro_server.Server(**server_kwargs)
+        server = djfire_server.Server(**server_kwargs)
 
         for pre in stack:
             self.stdout.write("Starting %r" % pre)
@@ -74,7 +74,7 @@ class Command(BaseCommand):
                 raise ValueError("Invalid spec %s (doesn't look like name:path)" % spec)
             name, path = spec.split(':', 1)
             if '.' not in path:
-                path = 'djpyro.plugins.%s' % path
+                path = 'djfire.plugins.%s' % path
             modname, plugin_name = path.rsplit('.', 1)
             mod = importlib.import_module(modname)
             plugin = getattr(mod, plugin_name)

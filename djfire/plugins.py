@@ -3,7 +3,7 @@
 # Copyright (c) 2013 Raphaël Barrois
 
 
-"""Plugins for the djpyro server."""
+"""Plugins for the djfire server."""
 
 from __future__ import unicode_literals
 

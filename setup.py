@@ -22,20 +22,20 @@ def get_version(package_name):
     return '0.1.0'
 
 
-PACKAGE = 'djpyro'
+PACKAGE = 'djfire'
 
 
 setup(
-    name="djpyro",
+    name="djfire",
     version=get_version(PACKAGE),
     author="Raphaël Barrois",
-    author_email="raphael.barrois+djpyro@polytechnique.org",
+    author_email="raphael.barrois+djfire@polytechnique.org",
     description="Integrate 'pyro' into a Django runserver.",
     license="BSD",
     keywords=['django', 'pyro', 'integration', 'tests', 'remote'],
-    url="http://github.com/rbarrois/djpyro",
-    download_url="http://pypi.python.org/pypi/djpyro/",
-    packages=['djpyro'],
+    url="http://github.com/rbarrois/djfire",
+    download_url="http://pypi.python.org/pypi/djfire/",
+    packages=['djfire'],
     setup_requires=[
         'setuptools>=0.8',
     ],
